@@ -1,0 +1,26 @@
+<header>
+  <ul>
+    <% if user_signed_in? %>
+        <li>
+          <%= current_user.email %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, :method => :delete do %>
+              <span class='glyphicon glyphicon-log-out'></span>
+              <span class="hidden-xs hidden-sm">Log out</span>
+          <% end %>
+        </li>
+    <% else %>
+        <li>
+          <%= link_to new_user_session_path do %>
+              <span class='glyphicon glyphicon-log-in'></span> <span class="hidden-xs">Log in</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_registration_path do %>
+              <span class='glyphicon glyphicon-user'></span> <span class="hidden-xs">Sign up</span>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</header>

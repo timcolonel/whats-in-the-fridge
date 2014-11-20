@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  preparation: MyString
+  preparation_time: 2014-11-20 13:24:40
+  cooking_time: 2014-11-20 13:24:40
+  user_id: 
+
+two:
+  name: MyString
+  preparation: MyString
+  preparation_time: 2014-11-20 13:24:40
+  cooking_time: 2014-11-20 13:24:40
+  user_id: 
