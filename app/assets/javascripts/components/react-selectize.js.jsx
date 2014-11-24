@@ -37,7 +37,7 @@ var ReactSelectize = React.createClass({
         }
         o.options = this.props.values.concat(this.state.items);
         console.log(this.convertItems(this.props.values));
-        console.log( this.convertItems(this.state.items));
+        console.log(this.convertItems(this.state.items));
         console.log(o.options);
         o.create = this.props.create;
         o.load = function (query, callback) {
@@ -83,7 +83,6 @@ var ReactSelectize = React.createClass({
         if (selectControl) {
             // rebuild
             selectControl.off();
-            selectControl.clearOptions();
             selectControl.load(function (cb) {
                 cb(items)
             });
@@ -92,7 +91,6 @@ var ReactSelectize = React.createClass({
             $select = $("#" + this.props.selectId).selectize(this.buildOptions());
             selectControl = $select[0].selectize;
             for (var i in this.props.values) {
-                console.log(selectControl.options);
                 selectControl.addItem(this.props.values[i].id);
             }
         }
@@ -105,7 +103,6 @@ var ReactSelectize = React.createClass({
     componentDidMount: function () {
         this.rebuildSelectize();
     },
-
     componentDidUpdate: function () {
         this.rebuildSelectize();
     },

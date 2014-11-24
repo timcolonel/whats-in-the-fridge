@@ -27,11 +27,17 @@ class RecipesController < ApplicationController
   end
 
   def update
-
+    load_ingredients
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
   private
