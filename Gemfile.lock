@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/reactjs/react-rails.git
+  revision: b0dd8c3296ca103384717ff8e5f469a6e2313baf
+  specs:
+    react-rails (1.0.0.pre)
+      connection_pool
+      execjs
+      rails (>= 3.1)
+      react-source (= 0.12)
+
+GIT
   remote: git://github.com/timcolonel/cancancan.git
   revision: f02386e5058212238a7bcfe4fa3cba6964a273a9
   specs:
@@ -35,6 +45,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -43,6 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    connection_pool (2.1.0)
     devise (3.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -83,6 +96,8 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
@@ -121,6 +136,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    react-source (0.12.0)
     remotipart (1.2.1)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
@@ -161,6 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   cancancan!
   coffee-rails (~> 4.0.0)
   devise
@@ -168,8 +185,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
+  quiet_assets
   rails (= 4.1.8)
   rails_admin
+  react-rails!
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

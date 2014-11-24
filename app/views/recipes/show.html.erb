@@ -1,0 +1,31 @@
+<div class="container">
+  <h1><%= @recipe.type.name.capitalize %>: <i><%= @recipe.name %></i></h1>
+
+  <div>
+    <b>Preparation time: </b>
+    <%= @recipe.preparation_time.min %>min
+  </div>
+  <div>
+    <b>Cooking time: </b>
+    <%= @recipe.cooking_time.min %>min
+  </div>
+  <hr>
+  <div>
+    <b>Ingredients:</b>
+
+    <div>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <span class="label label-default">
+            <%= ingredient.name %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <b>Preparation steps:</b>
+
+    <div>
+      <%= @recipe.preparation %>
+    </div>
+  </div>
+</div>
