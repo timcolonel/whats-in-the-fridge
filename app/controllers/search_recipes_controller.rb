@@ -3,10 +3,22 @@ class SearchRecipesController < ApplicationController
   # Search recipes by ingredients
   # The recipe must have all the ingredients given
   def search_by_ingredients
-    ingredients = params[:ingredients].split(',').map { |x| x.to_i }
+    ingredient_ids = params[:ingredients].split(',').map { |x| x.to_i }
+    ingredients = get_all_ingredients_ids(Ingredient.where(id: ingredient_ids))
+    puts 'In:'
+    puts ingredients.to_s
     recipes = Recipe.joins(:recipes_ingredients)
                   .where(recipes_ingredients: {ingredient_id: ingredients})
-                  .group('recipes.id').having('count(*) >= ?', ingredients.size)
+                  .group('recipes.id').having('count(*) >= ?', ingredient_ids.size)
     render json: recipes.as_json
+  end
+
+  def get_all_ingredients_ids(ingredients)
+    ids = ingredients.ids
+    ingredients.each do |ingredient|
+      puts ingredient.children.to_a.to_s
+      ids += get_all_ingredients_ids(ingredient.children)
+    end
+    ids
   end
 end
