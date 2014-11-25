@@ -15,16 +15,12 @@
       font-weight: bold;
     }
 
-    .recipe-info {
-      margin-top: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      line-height: 1.3rem;
-      max-height: 3.9rem
+    .recipe-image {
+      img {
+        width: 100%
+      }
     }
+
   }
 
   a.recipe:hover {

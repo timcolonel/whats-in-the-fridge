@@ -30,9 +30,6 @@
   </div>
   <div>
     <b>Preparation steps:</b>
-
-    <div class="recipe-preparation-steps">
-      <%= @recipe.preparation %>
-    </div>
+    <%= content_tag :div, @recipe.preparation, class: 'recipe-preparation-steps' %>
   </div>
 </div>

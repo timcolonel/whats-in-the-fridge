@@ -1,6 +1,6 @@
 var RecipeSearcher = React.createClass({
     onChange: function (value) {
-      window.location = Routes.recipe_path(value)
+        window.location = Routes.recipe_path(value)
     },
     render: function () {
         return (
@@ -55,14 +55,15 @@ var RecipeSearcherByIngredient = React.createClass({
 
 var Recipe = React.createClass({
     render: function () {
+        console.log(this.props.recipe);
         return (
             <div className='col-md-4'>
                 <a className='recipe' href={Routes.recipe_path(this.props.recipe.id)}>
+                    <div className='recipe-image'>
+                        <img src={this.props.recipe.medium_image}/>
+                    </div>
                     <div className='recipe-name'>
                         {this.props.recipe.name}
-                    </div>
-                    <div className='recipe-info'>
-                        {this.props.recipe.preparation}
                     </div>
                 </a>
             </div>
