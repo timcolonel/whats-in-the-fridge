@@ -14,3 +14,37 @@
  *= require bootstrap
  *= require_self
  */
+@import "variables";
+
+ul {
+  list-style-type: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  height: 5rem;
+  background-color: $palette_blue_lighter;
+  color: white;
+  a {
+    color: white;
+    &:hover {
+      color: $palette_grey_medium_dark;
+    }
+  }
+
+  .left-nav {
+    float: left;
+
+  }
+  .right-nav {
+    float: right;
+    display: flex;
+  }
+
+  li {
+    margin: 1.5rem;
+  }
+}

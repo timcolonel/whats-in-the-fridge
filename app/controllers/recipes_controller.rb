@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe.assign_attributes(recipe_params)
     load_ingredients
     if @recipe.save
       redirect_to recipe_path(@recipe)
