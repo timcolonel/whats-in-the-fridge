@@ -40,4 +40,11 @@
     width: 100%;
   }
 
+  .recipe-preparation-steps {
+    white-space: pre-wrap;
+    display: block;
+    unicode-bidi: embed;
+    text-overflow: clip;
+  }
+
 }
