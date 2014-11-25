@@ -15,8 +15,9 @@
         <div class="form-group">
           <div class="btn-group" data-toggle="buttons">
             <% RecipeType.all.each do |type| %>
-                <label class='btn btn-default'>
-                  <%= f.radio_button :type_id, type.id %>
+                <% checked = (type.id == @recipe.type_id) ? 'active' : '' %>
+                <label class='btn btn-default <%= checked %>'>
+                  <%= f.radio_button :type_id, type.id, checked: (type.id == @recipe.type_id) %>
                   <%= type.name %>
                 </label>
             <% end %>
