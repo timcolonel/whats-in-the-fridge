@@ -19,3 +19,12 @@
 //= require react_ujs
 //= require js-routes
 //= require_tree .
+
+
+var React = React;
+
+//noinspection BadExpressionStatementJS
+(function () {
+    this.componentDidMount();
+    this.componentDidUpdate();
+});

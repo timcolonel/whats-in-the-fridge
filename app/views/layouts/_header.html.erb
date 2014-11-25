@@ -1,31 +1,35 @@
 <header>
-  <ul class="left-nav">
-    <li>
+  <div class="left-nav">
+    <div>
       <a href="<%= root_path %>">What's in the fridge</a>
-    </li>
-  </ul>
-  <ul class="right-nav">
+    </div>
+
+    <div class="search-box">
+      <%= react_component('RecipeSearcher') %>
+    </div>
+  </div>
+  <div class="right-nav">
     <% if user_signed_in? %>
-        <li>
+        <div>
           <%= current_user.email %>
-        </li>
-        <li>
+        </div>
+        <div>
           <%= link_to destroy_user_session_path, :method => :delete do %>
               <span class='glyphicon glyphicon-log-out'></span>
               <span class="hidden-xs hidden-sm">Log out</span>
           <% end %>
-        </li>
+        </div>
     <% else %>
-        <li>
+        <div>
           <%= link_to new_user_session_path do %>
               <span class='glyphicon glyphicon-log-in'></span> <span class="hidden-xs">Log in</span>
           <% end %>
-        </li>
-        <li>
+        </div>
+        <div>
           <%= link_to new_user_registration_path do %>
               <span class='glyphicon glyphicon-user'></span> <span class="hidden-xs">Sign up</span>
           <% end %>
-        </li>
+        </div>
     <% end %>
-  </ul>
+  </div>
 </header>

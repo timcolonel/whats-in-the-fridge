@@ -1,6 +1,11 @@
 class RecipesController < ApplicationController
   load_and_authorize_resource
 
+  def list
+    @recipes.where('name like %?%', params[:q])
+    render json: @recipes.as_json
+  end
+
   def index
 
   end
@@ -57,5 +62,6 @@ class RecipesController < ApplicationController
 
   def reset
     @recipe = Recipe.find(params[:id])
+    @recipes = Recipe.all
   end
 end

@@ -108,7 +108,6 @@ var ReactSelectize = React.createClass({
     render: function () {
         var classes = this.props.classes;
         return React.DOM.div({className: classes && classes.length > 0 ? classes.join(' ') : ''},
-            React.DOM.label({for: this.props.selectId}, this.props.label),
             <input type='text' id={this.props.selectId} placeholder={this.props.placeholder} name={this.props.name}/>
         )
     }

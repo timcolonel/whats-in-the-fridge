@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/recipes/search/by_ingredients' => 'search_recipes#search_by_ingredients'
-  
-  resources :recipes
+
+  resources :recipes do
+    collection do
+      get 'list'
+    end
+  end
   resources :ingredients do
     collection do
       get 'list'
