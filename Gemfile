@@ -46,3 +46,5 @@ gem 'puma'
 
 gem 'rails_12factor'
 
+gem 'paperclip'
+

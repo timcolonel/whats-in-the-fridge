@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125153538) do
+ActiveRecord::Schema.define(version: 20141125212906) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 20141125153538) do
     t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "recipes", ["type_id"], name: "index_recipes_on_type_id", using: :btree
