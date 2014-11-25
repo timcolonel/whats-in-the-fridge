@@ -17,7 +17,10 @@ var ReactSelectize = React.createClass({
             searchField: "name",
             create: false,
             items: [],
-            url: ''
+            url: '',
+            onChange: function () {
+
+            }
         };
     },
     isMultiple: function (props) {
@@ -36,9 +39,6 @@ var ReactSelectize = React.createClass({
             o.maxItems = this.props.maxItems || null;
         }
         o.options = this.props.values.concat(this.state.items);
-        console.log(this.convertItems(this.props.values));
-        console.log(this.convertItems(this.state.items));
-        console.log(o.options);
         o.create = this.props.create;
         o.load = function (query, callback) {
             $.get(this.props.url, {q: query}).done(function (data) {
@@ -71,9 +71,7 @@ var ReactSelectize = React.createClass({
             this.getSelectizeControl().blur();
         }
 
-        if (this.props.onChange) {
-            this.props.onChange(e);
-        }
+        this.props.onChange(e);
     },
 
     rebuildSelectize: function () {

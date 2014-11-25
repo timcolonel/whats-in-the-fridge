@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120182518) do
+ActiveRecord::Schema.define(version: 20141125153538) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
+
+  add_index "ingredients", ["parent_id"], name: "index_ingredients_on_parent_id", using: :btree
 
   create_table "recipe_types", force: true do |t|
     t.string   "name"

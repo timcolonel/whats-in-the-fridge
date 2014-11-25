@@ -81,6 +81,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.2.1)
       railties (>= 3.2.16)
+    js-routes (0.9.9)
+      railties (>= 3.2)
+      sprockets-rails
     json (1.8.1)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -184,6 +187,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  js-routes
   mysql2
   quiet_assets
   rails (= 4.1.8)

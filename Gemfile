@@ -40,3 +40,5 @@ gem 'react-rails', github: 'reactjs/react-rails'
 
 gem 'quiet_assets'
 
+gem 'js-routes'
+
