@@ -48,3 +48,5 @@ gem 'rails_12factor'
 
 gem 'paperclip'
 
+gem 'aws-sdk'
+
