@@ -7,10 +7,6 @@ class SearchRecipesController < ApplicationController
     recipes = Recipe.joins(:recipes_ingredients)
                   .where(recipes_ingredients: {ingredient_id: ingredients})
                   .group('recipes.id').having('count(*) >= ?', ingredients.size)
-    recipes += recipes
-    recipes += recipes
-    recipes += recipes
-    recipes += recipes
     render json: recipes.as_json
   end
 end
