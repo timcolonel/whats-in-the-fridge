@@ -44,3 +44,5 @@ gem 'js-routes'
 
 gem 'puma'
 
+gem 'rails_12factor'
+
