@@ -42,3 +42,5 @@ gem 'quiet_assets'
 
 gem 'js-routes'
 
+gem 'puma'
+
