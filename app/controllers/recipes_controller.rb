@@ -54,14 +54,17 @@ class RecipesController < ApplicationController
   end
 
   def load_ingredients
-    @recipe.ingredients.destroy_all
-    return if params[:ingredients].nil?
-    JSON.parse(params[:ingredients], symbolize_names: true).each do |x|
-      recipe_ingredient = @recipe.recipe_ingredients.build
-      recipe_ingredient.ingredient = Ingredient.find(x[:id].to_i)
-      recipe_ingredient.value = x[:value]
+    if @recipe.valid?
+      @recipe.ingredients.destroy_all
+      return if params[:ingredients].nil?
+      JSON.parse(params[:ingredients], symbolize_names: true).each do |x|
+        recipe_ingredient = @recipe.recipe_ingredients.build
+        recipe_ingredient.ingredient = Ingredient.find(x[:id].to_i)
+        recipe_ingredient.value = x[:value]
+      end
     end
   end
+
 
   def reset
     @recipe = Recipe.find(params[:id])

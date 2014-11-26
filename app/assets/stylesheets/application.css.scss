@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require bootstrap
+ *= require font-awesome
  *= require_self
  */
 @import "variables";
@@ -21,8 +22,13 @@ ul {
   list-style-type: none;
 }
 
-a:hover {
+a {
+  color: $palette_grey_medium_dark;
+
   text-decoration: none;
+  &:hover {
+    color: $palette_grey_medium_light;
+  }
 }
 
 header {

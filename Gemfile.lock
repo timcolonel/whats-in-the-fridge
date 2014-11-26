@@ -208,6 +208,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   figaro
+  font-awesome-rails
   github-markdown
   jbuilder (~> 2.0)
   jquery-rails

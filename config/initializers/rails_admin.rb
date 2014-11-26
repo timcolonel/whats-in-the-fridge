@@ -17,8 +17,8 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard # mandatory
+    index # mandatory
     new
     export
     bulk_delete
@@ -32,3 +32,25 @@ RailsAdmin.config do |config|
     # history_show
   end
 end
+
+module ActiveRecord
+  module RailsAdminEnum
+    def enum(definitions)
+      super
+
+      definitions.each do |name, values|
+        define_method("#{ name }_enum") { self.class.send(name.to_s.pluralize).to_a }
+
+        define_method("#{ name }=") do |value|
+          if value.kind_of?(String) and value.to_i.to_s == value
+            super value.to_i
+          else
+            super value
+          end
+        end
+      end
+    end
+  end
+end
+
+ActiveRecord::Base.send(:extend, ActiveRecord::RailsAdminEnum)
