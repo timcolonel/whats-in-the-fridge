@@ -53,8 +53,7 @@ gem 'aws-sdk'
 
 gem 'github-markdown'
 
+# Assets
 gem 'font-awesome-rails'
-
 gem 'nprogress-rails'
-
-gem 'dropzonejs-rails'
+gem 'momentjs-rails'

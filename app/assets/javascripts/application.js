@@ -19,7 +19,7 @@
 //= require js-routes
 //= require nprogress
 //= require nprogress-turbolinks
-//= require dropzone
+//= require moment
 //= require_tree .
 
 
@@ -33,6 +33,12 @@ var React = React;
 
 
 var ready = function () {
+    $('.timepicker').datetimepicker({
+        format: 'HH:mm',
+        pickDate: false,
+        useCurrent: false,
+        pick12HourFormat: false
+    });
     $(document).find(".markdown-editor").each(function () {
         var item = $(this);
         item.markdown({

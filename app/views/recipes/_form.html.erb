@@ -1,4 +1,4 @@
-<%= form_for @recipe, html: {class: 'dropzone'} do |f| %>
+<%= form_for @recipe do |f| %>
     <% if @recipe.errors.any? %>
         <div class="alert alert-danger">
           <% @recipe.errors.full_messages.each do |message| %>
@@ -33,12 +33,20 @@
           <div class='row'>
             <div class="col-md-6">
               <%= f.label :preparation_time %>
-              <%= f.time_field :preparation_time, class: 'form-control' %>
+              <div class="input-group date timepicker">
+                <% time = @recipe.preparation_time.nil? ? '' : @recipe.preparation_time.strftime('%H:%M') %>
+                <%= f.text_field :preparation_time, value: time, class: 'form-control' %>
+                <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+              </div>
             </div>
 
             <div class="col-md-6">
               <%= f.label :cooking_time %>
-              <%= f.time_field :cooking_time, class: 'form-control' %>
+              <div class="input-group date timepicker">
+                <% time = @recipe.cooking_time.nil? ? '' : @recipe.cooking_time.strftime('%H:%M') %>
+                <%= f.text_field :cooking_time, value: time, class: 'form-control' %>
+                <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+              </div>
             </div>
           </div>
         </div>
@@ -76,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group dropzone">
           <%= f.label :image %>
           <%= f.file_field :image %>
         </div>
