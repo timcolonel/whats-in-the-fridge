@@ -10,14 +10,21 @@
   </div>
   <div class="right-nav">
     <% if user_signed_in? %>
-        <div>
-          <%= current_user.email %>
-        </div>
-        <div>
-          <%= link_to destroy_user_session_path, :method => :delete do %>
-              <span class='glyphicon glyphicon-log-out'></span>
-              <span class="hidden-xs hidden-sm">Log out</span>
-          <% end %>
+        <div class="dropdown">
+          <a class="dropdown-toggle" id="user-drop-menu" data-toggle="dropdown" type="button">
+            <span><%= current_user.email %></span>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="user-drop-menu">
+            <li role="presentation">
+              <%= link_to 'Some path', '' %>
+            </li>
+            <li role="presentation">
+              <%= link_to destroy_user_session_path, :method => :delete do %>
+                  <span class='glyphicon glyphicon-log-out'></span>
+                  <span class="hidden-xs hidden-sm">Log out</span>
+              <% end %>
+            </li>
+          </ul>
         </div>
     <% else %>
         <div>

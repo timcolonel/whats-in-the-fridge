@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'markdown/render' => 'markdown#process_markdown'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcome#index'

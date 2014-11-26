@@ -13,13 +13,13 @@
       </div>
       <hr>
       <div>
-        <b>Ingredients:</b>
+        <h3>Ingredients:</h3>
 
-        <div>
+        <div class="ingredients-list">
           <% @recipe.ingredients.each do |ingredient| %>
-        <span class="label label-default">
-            <%= ingredient.name %>
-        </span>
+              <div class="ingredient">
+                <%= ingredient.name %>
+              </div>
           <% end %>
         </div>
       </div>
@@ -28,8 +28,8 @@
       <img class='recipe-image' src="<%= @recipe.image %>"/>
     </div>
   </div>
-  <div>
-    <b>Preparation steps:</b>
-    <%= content_tag :div, @recipe.preparation, class: 'recipe-preparation-steps' %>
+  <div class="recipe-preparation">
+    <h3>Preparation steps:</h3>
+    <%= content_tag :div, render_markdown(@recipe.preparation).html_safe, class: 'recipe-preparation-steps' %>
   </div>
 </div>

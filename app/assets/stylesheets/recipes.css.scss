@@ -36,11 +36,23 @@
     width: 100%;
   }
 
-  .recipe-preparation-steps {
-    white-space: pre-wrap;
-    display: block;
-    unicode-bidi: embed;
-    text-overflow: clip;
+  .ingredients-list {
+    list-style-type: disc;
+    .ingredient {
+      display: list-item;
+    }
+  }
+  .recipe-preparation {
+    margin-top: 2rem;
+    .recipe-preparation-steps {
+
+    }
   }
 
+}
+
+.new_recipe, .edit_recipe {
+  textarea {
+    height: 30rem;
+  }
 }

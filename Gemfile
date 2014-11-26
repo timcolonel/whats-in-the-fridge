@@ -50,3 +50,4 @@ gem 'paperclip'
 
 gem 'aws-sdk'
 
+gem 'github-markdown'

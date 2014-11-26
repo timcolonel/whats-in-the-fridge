@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
-//= require bootstrap-sprockets
+//= require turbolinks
 //= require react
 //= require react_ujs
 //= require js-routes
@@ -27,4 +26,19 @@ var React = React;
 (function () {
     this.componentDidMount();
     this.componentDidUpdate();
+});
+
+
+$(document).ready(function () {
+    $(document).find(".markdown-editor").each(function () {
+        var item = $(this);
+        item.markdown({
+            onPreview: function (e) {
+                var originalContent = e.getContent();
+                $.get(item.data('preview-url'), {text: originalContent}).done(function (data) {
+                    e.setPreview(data)
+                });
+            }
+        });
+    });
 });

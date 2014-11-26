@@ -27,7 +27,7 @@ a:hover {
 
 header {
   height: 5rem;
-  align-items: center;
+  align-items: stretch;
   background-color: $palette_blue_lighter;
   color: white;
   display: flex;
@@ -39,7 +39,6 @@ header {
   }
 
   .left-nav {
-    margin: 1rem;
     display: flex;
     align-items: center;
 
@@ -49,16 +48,47 @@ header {
       height: 34px;
       margin: 0 3rem;
     }
+
+    > div {
+      margin: 0 1rem;
+    }
   }
   .right-nav {
-    margin: 1rem;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: flex-end;
     flex: 1 0 auto;
 
     > div {
+      display: flex;
+      align-items: stretch;
       margin: 0 1rem;
+    }
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    padding: 0 1rem;
+    align-items: center;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $palette_blue_medium;
+    }
+  }
+  .dropdown-menu {
+    width: 100%;
+    background-color: $palette_blue_lighter;
+    margin: 0;
+    border-radius: 0;
+    a {
+      color: white;
+      padding: 1rem;
+      &:hover {
+        color: $palette_grey_lighter;
+        background-color: $palette_blue_medium;
+      }
     }
   }
 
