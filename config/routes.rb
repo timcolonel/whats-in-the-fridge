@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :ingredients do
     collection do
       get 'list'
+      get 'random'
     end
   end
 

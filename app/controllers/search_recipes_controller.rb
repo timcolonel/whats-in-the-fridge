@@ -8,7 +8,7 @@ class SearchRecipesController < ApplicationController
     ingredients = get_all_ingredients_ids(inputed_ingredients)
     recipes = Recipe.joins(:recipe_ingredients)
                   .where(recipe_ingredients: {ingredient_id: ingredients})
-                  .group('recipes.id').having('count(*) >= ?', inputed_ingredients.size)
+                  .group('recipes.id').having('count(*) >= ?', inputed_ingredients.size).limit(20)
     render json: recipes.as_json
   end
 
