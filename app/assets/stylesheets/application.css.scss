@@ -13,6 +13,8 @@
  *= require_tree .
  *= require bootstrap
  *= require font-awesome
+ *= require nprogress
+ *= require nprogress-bootstrap
  *= require_self
  */
 @import "variables";
@@ -20,6 +22,7 @@
 body {
   background-color: $palette_grey_lightest;
 }
+
 ul {
   margin: 0;
   list-style-type: none;
@@ -39,8 +42,22 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+#nprogress {
+  .bar {
+    top: $header_height;
+  }
+  .spinner {
+    top: $header_height + 1rem;
+  }
+
+  .peg {
+    display: none;
+  }
+}
+
 header {
-  height: 5rem;
+  height: $header_height;
   align-items: stretch;
   background-color: $palette_blue_lighter;
   color: white;

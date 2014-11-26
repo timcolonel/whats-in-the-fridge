@@ -17,6 +17,8 @@
 //= require react
 //= require react_ujs
 //= require js-routes
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
 
 

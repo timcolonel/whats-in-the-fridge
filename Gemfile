@@ -54,3 +54,5 @@ gem 'aws-sdk'
 gem 'github-markdown'
 
 gem 'font-awesome-rails'
+
+gem 'nprogress-rails'
