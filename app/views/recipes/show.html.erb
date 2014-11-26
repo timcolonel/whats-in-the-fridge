@@ -74,11 +74,17 @@
       </div>
     </div>
     <div class="col-md-6">
-      <img class='recipe-image shadow-box' src="<%= @recipe.image %>"/>
+      <div class="shadow-box">
+        <img class='recipe-image' src="<%= @recipe.image %>"/>
+      </div>
     </div>
   </div>
-  <div class="recipe-preparation">
-    <h3>Preparation steps:</h3>
-    <%= content_tag :div, render_markdown(@recipe.preparation).html_safe, class: 'recipe-preparation-steps' %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="recipe-preparation shadow-box">
+        <h3>Preparation steps:</h3>
+        <%= content_tag :div, render_markdown(@recipe.preparation).html_safe, class: 'recipe-preparation-steps' %>
+      </div>
+    </div>
   </div>
 </div>

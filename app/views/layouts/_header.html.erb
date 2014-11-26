@@ -28,12 +28,12 @@
         </div>
     <% else %>
         <div>
-          <%= link_to new_user_session_path do %>
+          <%= link_to new_user_session_path, class: 'flex-center' do %>
               <span class='glyphicon glyphicon-log-in'></span> <span class="hidden-xs">Log in</span>
           <% end %>
         </div>
         <div>
-          <%= link_to new_user_registration_path do %>
+          <%= link_to new_user_registration_path, class: 'flex-center' do %>
               <span class='glyphicon glyphicon-user'></span> <span class="hidden-xs">Sign up</span>
           <% end %>
         </div>
