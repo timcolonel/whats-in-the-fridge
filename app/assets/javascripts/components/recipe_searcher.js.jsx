@@ -4,7 +4,11 @@ var RecipeSearcher = React.createClass({
     },
     render: function () {
         return (
-            <ReactSelectize selectId='search-recipes' url={Routes.list_recipes_path()} onChange={this.onChange} multiple={false}/>
+            <ReactSelectize selectId='search-recipes'
+                url={Routes.list_recipes_path()}
+                onChange={this.onChange}
+                multiple={false}
+                placeholder='Search for recipes...'/>
         );
     }
 });
