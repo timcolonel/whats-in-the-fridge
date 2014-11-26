@@ -8,6 +8,8 @@ module RecipesHelper
            end
     minutes = if time.min > 0
                 "#{time.min}min "
+              elsif time.hour == 0
+                'None'
               else
                 ''
               end
