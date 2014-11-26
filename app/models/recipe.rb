@@ -1,7 +1,8 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
   belongs_to :type, class_name: RecipeType
-  has_and_belongs_to_many :ingredients, class_name: 'Ingredient', join_table: 'recipes_ingredients'
+  has_many :recipe_ingredients, class_name: RecipeIngredient
+  has_many :ingredients, class_name: Ingredient, through: :recipe_ingredients
 
 
   has_attached_file :image, styles: {medium: '300x300>', thumbnail: '100x100>'}

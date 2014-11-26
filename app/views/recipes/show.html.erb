@@ -16,9 +16,10 @@
         <h3>Ingredients:</h3>
 
         <div class="ingredients-list">
-          <% @recipe.ingredients.each do |ingredient| %>
+          <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
               <div class="ingredient">
-                <%= ingredient.name %>
+                <b><%= recipe_ingredient.ingredient.name %></b>:
+                <%= recipe_ingredient.value %>
               </div>
           <% end %>
         </div>

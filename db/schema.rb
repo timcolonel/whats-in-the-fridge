@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125212906) do
+ActiveRecord::Schema.define(version: 20141126032826) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20141125212906) do
   end
 
   add_index "ingredients", ["parent_id"], name: "index_ingredients_on_parent_id", using: :btree
+
+  create_table "recipe_ingredients", force: true do |t|
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.string  "value"
+  end
 
   create_table "recipe_types", force: true do |t|
     t.string   "name"
@@ -45,11 +51,6 @@ ActiveRecord::Schema.define(version: 20141125212906) do
 
   add_index "recipes", ["type_id"], name: "index_recipes_on_type_id", using: :btree
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
-
-  create_table "recipes_ingredients", force: true do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

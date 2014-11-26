@@ -18,6 +18,12 @@ var ReactSelectize = React.createClass({
             create: false,
             items: [],
             url: '',
+            onItemAdded: function () {
+
+            },
+            onItemRemoved: function () {
+
+            },
             onChange: function () {
 
             }
@@ -27,7 +33,6 @@ var ReactSelectize = React.createClass({
         // Selectize becomes 'multiple' when 'maxItems' is passed via settings
         return props.multiple || props.maxItems != undefined;
     },
-
     buildOptions: function () {
         var o = {};
 
@@ -49,20 +54,10 @@ var ReactSelectize = React.createClass({
     },
     getSelectizeControl: function () {
         var selectId = "#" + this.props.selectId,
-            $select = $(selectId),
-            selectControl = $select[0] && $select[0].selectize;
+            $select = $(selectId);
 
-        return selectControl;
+        return $select[0] && $select[0].selectize;
     },
-    convertItems: function (items) {
-        var values = [];
-        for (var i in items) {
-            var item = items[i];
-            values.push({id: item.id, name: item.name});
-        }
-        return values;
-    }
-    ,
     handleChange: function (e) {
 
         // IF Selectize is not multiple
@@ -73,7 +68,6 @@ var ReactSelectize = React.createClass({
 
         this.props.onChange(e);
     },
-
     rebuildSelectize: function () {
         var $select = null,
             selectControl = this.getSelectizeControl(),
@@ -93,9 +87,14 @@ var ReactSelectize = React.createClass({
             }
         }
 
-        if (this.props.onChange) {
-            selectControl.on('change', this.handleChange);
-        }
+        selectControl.on('change', this.handleChange);
+        selectControl.on('item_add', function (value, item) {
+            this.props.onItemAdded(value, item.text())
+
+        }.bind(this));
+        selectControl.on('item_remove', function (value) {
+            this.props.onItemRemoved(value)
+        }.bind(this));
     },
 
     componentDidMount: function () {

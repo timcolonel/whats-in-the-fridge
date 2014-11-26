@@ -56,3 +56,19 @@
     height: 30rem;
   }
 }
+
+.ingredient-list {
+  border-top: 1px solid $palette_grey_medium_light;
+  .ingredient-list-header {
+
+  }
+
+  .list {
+    .item {
+      margin: 0.5rem 0;
+    }
+  }
+  .input {
+    margin-top: 1rem;
+  }
+}
