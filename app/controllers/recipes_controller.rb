@@ -19,8 +19,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    load_ingredients
     if @recipe.save
+      load_ingredients
       redirect_to recipe_path(@recipe)
     else
       render :new
@@ -33,10 +33,11 @@ class RecipesController < ApplicationController
 
   def update
     @recipe.assign_attributes(recipe_params)
-    load_ingredients
     if @recipe.save
+      load_ingredients
       redirect_to recipe_path(@recipe)
     else
+      load_ingredients
       render :edit
     end
   end
@@ -55,13 +56,15 @@ class RecipesController < ApplicationController
 
   def load_ingredients
     if @recipe.valid?
-      @recipe.ingredients.destroy_all
+      old_ingredients = @recipe.recipe_ingredients
+      @recipe.recipe_ingredients.destroy_all
       return if params[:ingredients].nil?
       JSON.parse(params[:ingredients], symbolize_names: true).each do |x|
         recipe_ingredient = @recipe.recipe_ingredients.build
         recipe_ingredient.ingredient = Ingredient.find(x[:id].to_i)
         recipe_ingredient.value = x[:value]
       end
+      @recipe.save
     end
   end
 

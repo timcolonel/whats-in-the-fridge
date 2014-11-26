@@ -56,3 +56,5 @@ gem 'github-markdown'
 gem 'font-awesome-rails'
 
 gem 'nprogress-rails'
+
+gem 'dropzonejs-rails'

@@ -19,6 +19,7 @@
 //= require js-routes
 //= require nprogress
 //= require nprogress-turbolinks
+//= require dropzone
 //= require_tree .
 
 
