@@ -20,6 +20,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require moment
+//= require patching
 //= require_tree .
 
 

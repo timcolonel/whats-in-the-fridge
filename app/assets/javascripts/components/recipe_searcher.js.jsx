@@ -39,6 +39,23 @@ var RecipeSearcherByIngredient = React.createClass({
     componentDidMount: function () {
         this.loadDefaultRecipes()
     },
+    renderRecipes: function (recipes) {
+        console.log(recipes.length);
+        var recipes_splits = [[], [], []];
+        eachSlice(recipes, 3, function (slice) {
+            for (var i in slice) {
+
+                recipes_splits[i].push(slice[i]);
+            }
+        });
+        return recipes_splits.map(function (x) {
+            return (
+                <div className='col-md-4'>
+                    {x}
+                </div>
+            )
+        });
+    },
     render: function () {
         var recipes = this.state.recipes.map(function (x) {
             return (
@@ -51,6 +68,7 @@ var RecipeSearcherByIngredient = React.createClass({
                 <Recipe recipe={x}/>
             )
         });
+
         if (recipes.length == 0) {
             if (this.state.query !== '') {
                 recipes = (
@@ -66,12 +84,13 @@ var RecipeSearcherByIngredient = React.createClass({
                             Recipes with {this.state.default_ingredient.name}
                             </h2>
                         </div>
-                        {default_recipes}
+                        {this.renderRecipes(default_recipes)}
                     </div>
                 )
 
             }
-
+        } else {
+            recipes = this.renderRecipes(recipes);
         }
         return (
             <div>
@@ -93,16 +112,14 @@ var Recipe = React.createClass({
     render: function () {
         console.log(this.props.recipe);
         return (
-            <div className='col-md-4'>
-                <a className='recipe' href={Routes.recipe_path(this.props.recipe.id)}>
-                    <div className='recipe-image'>
-                        <img src={this.props.recipe.medium_image}/>
-                    </div>
-                    <div className='recipe-name'>
+            <a className='recipe' href={Routes.recipe_path(this.props.recipe.id)}>
+                <div className='recipe-image'>
+                    <img src={this.props.recipe.medium_image}/>
+                </div>
+                <div className='recipe-name'>
                         {this.props.recipe.name}
-                    </div>
-                </a>
-            </div>
+                </div>
+            </a>
         );
     }
 });
