@@ -29,7 +29,7 @@ var React = React;
 });
 
 
-$(document).ready(function () {
+var ready = function () {
     $(document).find(".markdown-editor").each(function () {
         var item = $(this);
         item.markdown({
@@ -41,4 +41,8 @@ $(document).ready(function () {
             }
         });
     });
-});
+};
+
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
