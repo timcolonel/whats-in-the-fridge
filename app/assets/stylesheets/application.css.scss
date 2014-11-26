@@ -93,3 +93,34 @@ header {
   }
 
 }
+
+.shadow-box {
+  display: block;
+  color: $palette_grey_darkest;
+  text-decoration: none;
+  background-color: white;
+  box-shadow: 1px 1px 5px 0px $palette_grey_medium_light;
+  padding: 1rem;
+  margin: 1rem;
+
+  .box-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .box-important-data {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 100;
+  }
+
+  img {
+    width: 100%
+  }
+
+}
+
+a.shadow-box:hover {
+  background-color: $palette_grey_lighter;
+  cursor: pointer;
+}

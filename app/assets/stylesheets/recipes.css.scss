@@ -37,9 +37,14 @@
   }
 
   .ingredients-list {
-    list-style-type: disc;
     .ingredient {
-      display: list-item;
+      display: flex;
+      > .ingredient-name {
+        flex: 1 1 auto;
+      }
+      > .ingredient-quantity {
+        flex: 0 0 4rem;
+      }
     }
   }
   .recipe-preparation {
@@ -71,4 +76,16 @@
   .input {
     margin-top: 1rem;
   }
+}
+
+.recipe-complexity-simple, .recipe-cost-cheap {
+  color: $palette_green_lightest !important;
+}
+
+.recipe-complexity-medium, .recipe-cost-affordable {
+  color: $palette_yellow_lightest !important;
+}
+
+.recipe-complexity-hard, .recipe-cost-expensive {
+  color: $palette_orange_lightest !important;
 }

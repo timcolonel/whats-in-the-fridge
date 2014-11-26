@@ -10,9 +10,11 @@
     <% end %>
     <div class="row">
       <div class="col-md-6">
-
         <%= f.hidden_field :user_id %>
         <div class="form-group">
+          <div>
+            <%= f.label :type, 'Recipe type' %>
+          </div>
           <div class="btn-group" data-toggle="buttons">
             <% RecipeType.all.each do |type| %>
                 <% checked = (type.id == @recipe.type_id) ? 'active' : '' %>
@@ -37,6 +39,40 @@
             <div class="col-md-6">
               <%= f.label :cooking_time %>
               <%= f.time_field :cooking_time, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div>
+                <%= f.label :complexity %>
+              </div>
+              <div class="btn-group" data-toggle="buttons">
+                <% Recipe.complexities.each do |complexity, value| %>
+                    <% checked = (complexity == @recipe.complexity) ? 'active' : '' %>
+                    <label class='btn btn-default <%= checked %>'>
+                      <%= f.radio_button :complexity, complexity, checked: (complexity == @recipe.complexity) %>
+                      <%= complexity.capitalize %>
+                    </label>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div>
+                <%= f.label :cost %>
+              </div>
+              <div class="btn-group" data-toggle="buttons">
+                <% Recipe.costs.each do |cost, value| %>
+                    <% checked = (cost == @recipe.cost) ? 'active' : '' %>
+                    <label class='btn btn-default <%= checked %>'>
+                      <%= f.radio_button :cost, cost, checked: (cost == @recipe.cost) %>
+                      <%= cost.capitalize %>
+                    </label>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

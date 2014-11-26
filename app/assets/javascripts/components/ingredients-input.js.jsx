@@ -61,7 +61,8 @@ var IngredientListInput = React.createClass({
                         url={Routes.list_ingredients_path()}
                         placeholder='Add ingredients...'
                         onItemAdded={this.onItemAdded}
-                        onItemRemoved={this.onItemRemoved}/>
+                        onItemRemoved={this.onItemRemoved}
+                        values={this.state.ingredients}/>
                 </div>
             </div>
         );
