@@ -5,6 +5,12 @@ class Ingredient < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
+  def is_child_of?(ingredient)
+    return false if parent.nil?
+    return false unless ingredient.is_a? Ingredient
+    ingredient == parent or parent.is_child_of?(parent)
+  end
+
   def to_s
     name
   end
