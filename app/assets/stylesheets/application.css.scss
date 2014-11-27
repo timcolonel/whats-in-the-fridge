@@ -155,3 +155,20 @@ a.shadow-box:hover {
   background-color: $palette_grey_lighter;
   cursor: pointer;
 }
+
+
+#interactive.viewport {
+  width: 640px;
+  height: 480px;
+}
+
+/* line 6, ../sass/_viewport.scss */
+#interactive.viewport canvas, video {
+  float: left;
+  width: 640px;
+  height: 480px;
+}
+/* line 10, ../sass/_viewport.scss */
+#interactive.viewport canvas.drawingBuffer, video.drawingBuffer {
+  margin-left: -640px;
+}

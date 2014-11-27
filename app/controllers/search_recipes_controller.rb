@@ -4,15 +4,21 @@ class SearchRecipesController < ApplicationController
   # The recipe must have all the ingredients given
   def search_by_ingredients
     ingredient_ids = params[:ingredients].split(',').map { |x| x.to_i }
-    inputed_ingredients = get_ingredients(ingredient_ids)
-    ingredients = get_all_ingredients_ids(inputed_ingredients)
-    recipes = Recipe.joins(:recipe_ingredients)
-                  .where(recipe_ingredients: {ingredient_id: ingredients})
-                  .group('recipes.id').having('count(*) >= ?', inputed_ingredients.size).limit(20)
+    inputed_ingredients = keep_leaf_ingredients_only(ingredient_ids)
+    recipes = find_recipes_matching(inputed_ingredients)
     render json: recipes.as_json
   end
 
-  def get_ingredients(ids)
+  private
+
+  def find_recipes_matching(ingredients)
+    all_ingredients = get_all_ingredients_ids(ingredients)
+    Recipe.joins(:recipe_ingredients)
+        .where(recipe_ingredients: {ingredient_id: all_ingredients})
+        .group('recipes.id').having('count(*) >= ?', ingredients.size).limit(20)
+  end
+
+  def keep_leaf_ingredients_only(ids)
     all_ingredients = Ingredient.where(id: ids)
     ingredients = []
     all_ingredients.each do |ingredient|

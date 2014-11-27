@@ -29,7 +29,6 @@ var RecipeSearcherByIngredient = React.createClass({
     },
     loadDefaultRecipes: function (value) {
         $.get(Routes.random_ingredients_path()).done(function (ingredient) {
-            console.log(ingredient.name);
             this.setState({default_ingredient: ingredient});
             $.get(Routes.recipes_search_by_ingredients_path({ingredients: ingredient.id})).done(function (data) {
                 this.setState({default_recipes: data})
@@ -40,7 +39,6 @@ var RecipeSearcherByIngredient = React.createClass({
         this.loadDefaultRecipes()
     },
     renderRecipes: function (recipes) {
-        console.log(recipes.length);
         var recipes_splits = [[], [], []];
         eachSlice(recipes, 3, function (slice) {
             for (var i in slice) {
@@ -110,7 +108,6 @@ var RecipeSearcherByIngredient = React.createClass({
 
 var Recipe = React.createClass({
     render: function () {
-        console.log(this.props.recipe);
         return (
             <a className='recipe' href={Routes.recipe_path(this.props.recipe.id)}>
                 <div className='recipe-image'>
