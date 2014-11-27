@@ -45,10 +45,10 @@ a {
 
 #nprogress {
   .bar {
-    top: $header_height;
+    top: 0;
   }
   .spinner {
-    top: $header_height + 1rem;
+    top:  1rem;
   }
 
   .peg {
