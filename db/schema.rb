@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20141126182624) do
     t.integer  "parent_id"
   end
 
-  add_index "ingredients", ["parent_id"], name: "index_ingredients_on_parent_id", using: :btree
+  add_index "ingredients", ["parent_id"], name: "index_ingredients_on_parent_id"
 
   create_table "recipe_ingredients", force: true do |t|
     t.integer "recipe_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20141126182624) do
     t.integer  "cost"
   end
 
-  add_index "recipes", ["type_id"], name: "index_recipes_on_type_id", using: :btree
-  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
+  add_index "recipes", ["type_id"], name: "index_recipes_on_type_id"
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20141126182624) do
     t.integer  "role",                   default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

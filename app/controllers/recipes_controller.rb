@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   load_and_authorize_resource
 
   def list
-    @recipes.where('name like %?%', params[:q]).limit(20)
+    @recipes = @recipes.where('name like ?', "%#{params[:q]}%").limit(20)
     render json: @recipes.as_json
   end
 
