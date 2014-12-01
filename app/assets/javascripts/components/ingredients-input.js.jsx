@@ -1,3 +1,5 @@
+/** @jsx React.DOM */
+
 var IngredientListInput = React.createClass({
     getInitialState: function () {
         return {
@@ -19,11 +21,21 @@ var IngredientListInput = React.createClass({
         });
         this.setState({ingredients: newIngredients})
     },
-    onIngredientValueChange: function (id, value) {
+    onIngredientQuantityChange: function (id, value) {
         var newIngredients = this.state.ingredients;
         for (var i in newIngredients) {
             if (newIngredients[i].id == id) {
-                newIngredients[i].value = value;
+                newIngredients[i].quantity = value;
+            }
+        }
+        this.setState({ingredients: newIngredients})
+
+    },
+    onIngredientUnitChange: function (id, value) {
+        var newIngredients = this.state.ingredients;
+        for (var i in newIngredients) {
+            if (newIngredients[i].id == id) {
+                newIngredients[i].unit = value;
             }
         }
         this.setState({ingredients: newIngredients})
@@ -33,7 +45,10 @@ var IngredientListInput = React.createClass({
         var value = JSON.stringify(this.state.ingredients);
         var ingredients = this.state.ingredients.map(function (x) {
             return (
-                <IngredientInput key={x.id} ingredient={x} onChange={this.onIngredientValueChange.bind(this, x.id)}/>
+                <IngredientInput key={x.id} ingredient={x}
+                    onQuantityChange={this.onIngredientQuantityChange.bind(this, x.id)}
+                    onUnitChange={this.onIngredientUnitChange.bind(this, x.id)}
+                />
             );
         }.bind(this));
 
@@ -43,9 +58,13 @@ var IngredientListInput = React.createClass({
                 <div className='ingredient-list-header row'>
                     <div className='col-md-6'>
                     </div>
-                    <div className='col-md-6'>
-                        <i> Quantity(e.g. 200g)</i>
+                    <div className='col-md-3'>
+                        <i> Quantity(e.g. 200)</i>
                     </div>
+                    <div className='col-md-3'>
+                        <i> Unit(e.g. g)</i>
+                    </div>
+
                 </div>
             )
         }
@@ -70,8 +89,11 @@ var IngredientListInput = React.createClass({
 });
 
 var IngredientInput = React.createClass({
-    onChange: function (e) {
-        this.props.onChange(e.target.value);
+    onQuantityChange: function (e) {
+        this.props.onQuantityChange(e.target.value);
+    },
+    onUnitChange: function (e) {
+        this.props.onUnitChange(e.target.value);
     },
     render: function () {
         return (
@@ -80,7 +102,10 @@ var IngredientInput = React.createClass({
                     {this.props.ingredient.name}
                 </div>
                 <div className='col-md-3'>
-                    <input className='form-control' value={this.props.ingredient.value} onChange={this.onChange}/>
+                    <input className='form-control' value={this.props.ingredient.quantity} onChange={this.onQuantityChange}/>
+                </div>
+                <div className='col-md-3'>
+                    <input className='form-control' value={this.props.ingredient.unit} onChange={this.onUnitChange}/>
                 </div>
             </div>
         )
