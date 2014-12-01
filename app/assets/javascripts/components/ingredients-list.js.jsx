@@ -43,7 +43,10 @@ var Ingredient = React.createClass({
                     <b>{this.props.ingredient.name}</b>
                 </div>
                 <div className="ingredient-quantity">
-                    {this.props.ingredient.quantity * this.props.servings / this.props.initalServings + ' ' + this.props.ingredient.unit}
+                    {this.props.ingredient.quantity * this.props.servings / this.props.initalServings}
+                </div>
+                <div className="ingredient-unit">
+                    {this.props.ingredient.unit}
                 </div>
             </div>
         )
