@@ -13,7 +13,6 @@ var RecipeSearcher = React.createClass({
     }
 });
 
-
 var RecipeSearcherByIngredient = React.createClass({
     getInitialState: function () {
         return {query: '', recipes: [], default_ingredient: undefined, default_recipes: []};
@@ -29,6 +28,7 @@ var RecipeSearcherByIngredient = React.createClass({
     },
     loadDefaultRecipes: function (value) {
         $.get(Routes.random_ingredients_path()).done(function (ingredient) {
+            console.log('Random ingredient: ' + ingredient.name);
             this.setState({default_ingredient: ingredient});
             $.get(Routes.recipes_search_by_ingredients_path({ingredients: ingredient.id})).done(function (data) {
                 this.setState({default_recipes: data})
