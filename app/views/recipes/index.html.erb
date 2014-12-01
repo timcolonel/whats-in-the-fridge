@@ -1,4 +1,11 @@
 <div class='container'>
-    <h1> Recipes </h1>
-    <%= react_component('RecipeList', url: list_recipes_path) %>
+  <div class='list-header'>
+    <div class="list-header-title">
+      <h1> <%= params[:only_user_recipes] ? 'Your recipes' : 'Recipes' %> </h1>
+    </div>
+    <div class="list-header-butttons">
+      <a href='<%= new_recipe_path %>' class="btn btn-success" title="Create a new recipe" data-toggle="tooltip"><%= fa_icon 'plus' %></a>
+    </div>
+  </div>
+  <%= react_component('RecipeList', url: list_recipes_path(only_user_recipes: params[:only_user_recipes])) %>
 </div>

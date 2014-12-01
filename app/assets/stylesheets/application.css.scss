@@ -176,3 +176,15 @@ a.shadow-box:hover {
 #interactive.viewport canvas.drawingBuffer, video.drawingBuffer {
   margin-left: -640px;
 }
+
+.list-header {
+  display: flex;
+  align-items: center;
+
+  .list-header-title {
+    flex: 1 1 auto;
+  }
+  .list-header-buttons {
+    flex: 0 0 4rem;
+  }
+}

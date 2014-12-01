@@ -16,7 +16,13 @@
           </a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="user-drop-menu">
             <li role="presentation">
-              <%= link_to 'Some path', '' %>
+              <%= link_to 'New recipe', new_recipe_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to 'All recipes', recipes_path(only_user_recipes: true) %>
+            </li>
+            <li role="presentation">
+              <%= link_to 'Your recipes', recipes_path(only_user_recipes: true) %>
             </li>
             <li role="presentation">
               <%= link_to destroy_user_session_path, :method => :delete do %>

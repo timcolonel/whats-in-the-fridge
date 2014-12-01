@@ -30,6 +30,7 @@ gem 'spring', group: :development
 
 
 gem 'devise'
+
 gem 'cancancan', github: 'timcolonel/cancancan'
 
 gem 'figaro'

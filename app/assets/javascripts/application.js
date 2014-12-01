@@ -40,6 +40,7 @@ var ready = function () {
         useCurrent: false,
         pick12HourFormat: false
     });
+    $('[data-toggle="tooltip"]').tooltip();
     $(document).find(".markdown-editor").each(function () {
         var item = $(this);
         item.markdown({
