@@ -51,7 +51,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :cooking_time, :preparation_time, :preparation,
-                                   :type_id, :user_id, :image, :cost, :complexity)
+                                   :type_id, :user_id, :image, :cost, :complexity, :servings)
   end
 
   def load_ingredients
@@ -62,7 +62,8 @@ class RecipesController < ApplicationController
       JSON.parse(params[:ingredients], symbolize_names: true).each do |x|
         recipe_ingredient = @recipe.recipe_ingredients.build
         recipe_ingredient.ingredient = Ingredient.find(x[:id].to_i)
-        recipe_ingredient.value = x[:value]
+        recipe_ingredient.quantity = x[:quantity]
+        recipe_ingredient.unit = x[:unit]
       end
       @recipe.save
     end
