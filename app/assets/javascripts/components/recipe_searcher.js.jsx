@@ -71,10 +71,21 @@ var RecipeSearcherByIngredient = React.createClass({
             if (this.state.query !== '') {
                 recipes = (
                     <div>
-                        <h4> No recipes uploaded! </h4>
+                        <h4> No recipe match! </h4>
                     </div>
                 )
-            } 
+            } else if (this.state.default_ingredient !== undefined && this.state.default_recipes.length > 0) {
+                recipes = (
+                    <div>
+                        <div>
+                            <h2>
+                            Recipes with {this.state.default_ingredient.name}
+                            </h2>
+                        </div>
+                    {this.renderRecipes(default_recipes)}
+                    </div>
+                )
+            }
 
         } else {
             recipes = this.renderRecipes(recipes);
