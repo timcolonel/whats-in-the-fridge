@@ -1,5 +1,10 @@
 whats-in-the-fridge
 ===================
+Download
+``` 
+git clone https://github.com/timcolonel/whats-in-the-frige/
+cd whats-in-the-frige
+```
 
 Setup:
 
